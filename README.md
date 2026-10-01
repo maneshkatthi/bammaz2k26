@@ -1,8 +1,23 @@
 # Bammaz2k26
 
-A campus event management platform. Students discover events and register for them; organizers create and manage events and view registrations.
+A campus event management platform built for **CMR College of Engineering & Technology's** annual fest. Students discover events and register for them; organizers create and manage events and view registrations.
 
-> **Status:** MVP in development
+> **Purpose:** This project was built as a **team learning exercise** to understand full-stack web development — with each team member taking ownership of a separate layer (frontend or backend) independently, then integrating them together.
+
+> **Status:** MVP complete
+
+---
+
+## About This Project
+
+Bammaz2k26 was created by a small team of B.Tech students to gain hands-on experience with real-world full-stack development. The key idea was to **build the frontend and backend completely separately** — just like professional teams do — and then connect them through a well-defined REST API contract.
+
+Each team member focused on their own layer:
+- The **frontend developer** built the React UI, pages, forms, and API integration independently.
+- The **backend developer** built the Express API, authentication, database, and business logic independently.
+- Both collaborated on the API contract and integration.
+
+This separation helped each person deeply understand their own side of the stack before seeing how the full system fits together.
 
 ---
 
