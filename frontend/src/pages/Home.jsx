@@ -5,26 +5,34 @@ import './Home.css'
 
 /* ── Countdown ──────────────────────────────────────────────── */
 function Countdown({ targetDate }) {
-  const [time, setTime] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 })
+  const [time, setTime] = useState({ days: 1000, hours: 24, minutes: 60, seconds: 60 })
 
   useEffect(() => {
     const tick = () => {
-      const diff = new Date(targetDate) - new Date()
-      if (diff <= 0) {
-        setTime({ days: 0, hours: 0, minutes: 0, seconds: 0 })
-        return
-      }
-      setTime({
-        days: Math.floor(diff / 86400000),
-        hours: Math.floor((diff % 86400000) / 3600000),
-        minutes: Math.floor((diff % 3600000) / 60000),
-        seconds: Math.floor((diff % 60000) / 1000),
-      })
+      setTime(prev => {
+        let { days, hours, minutes, seconds } = prev;
+        seconds--;
+        if (seconds < 0) {
+          seconds = 59;
+          minutes--;
+        }
+        if (minutes < 0) {
+          minutes = 59;
+          hours--;
+        }
+        if (hours < 0) {
+          hours = 23;
+          days--;
+        }
+        if (days < 0) {
+          return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+        }
+        return { days, hours, minutes, seconds };
+      });
     }
-    tick()
     const id = setInterval(tick, 1000)
     return () => clearInterval(id)
-  }, [targetDate])
+  }, [])
 
   return (
     <div className="countdown">
@@ -60,7 +68,7 @@ export default function Home() {
   const EVENT_DATE = '2026-02-12T10:00:00'
 
   useEffect(() => {
-    api.get('/events').then(r => setEvents(r.data.events || [])).catch(() => {})
+    api.get('/events').then(r => setEvents(r.data.events || [])).catch(() => { })
   }, [])
 
   return (
@@ -80,8 +88,8 @@ export default function Home() {
             <p className="hero__college">CMR College of Engineering &amp; Technology</p>
 
             <div className="hero__info">
-              <span>📅 FEB 12 – 14, 2026</span>
-              <span>📍 CMR College, Kandlakoya, Hyderabad</span>
+              <span>📅 Saturday, January 9, 2027</span>
+              <span>📍 CMR College of Engineering and Technology, Kandlakoya, Hyderabad</span>
             </div>
 
             <div className="hero__tagline">
@@ -95,7 +103,7 @@ export default function Home() {
           </div>
 
           <div className="hero__right">
-            <span className="hero__accent">More<br/>than<br/>a Fest</span>
+            <span className="hero__accent">More<br />than<br />a Fest</span>
           </div>
         </div>
       </section>
@@ -126,11 +134,11 @@ export default function Home() {
             <div>
               <div className="section-label">Explore Events</div>
               <h2 className="explore__title">
-                Where Every<br/>
+                Where Every<br />
                 <span className="text-orange">Passion</span> Finds a Stage.
               </h2>
               <p className="explore__sub">
-                From technical challenges to cultural shows,<br/>
+                From technical challenges to cultural shows,<br />
                 there's something for everyone.
               </p>
             </div>
@@ -166,7 +174,7 @@ export default function Home() {
             <div className="about-section__text">
               <div className="section-label">About Bammaz 2K26</div>
               <h2 className="about-section__title">
-                A Celebration of<br/>
+                A Celebration of<br />
                 <span className="text-orange">Ideas, Talent</span> and{' '}
                 <span className="text-orange">Togetherness.</span>
               </h2>
@@ -183,7 +191,7 @@ export default function Home() {
               <img src="/college1.png" alt="College campus" className="about-section__img about-section__img--main" />
               <img src="/college2.png" alt="CMR College" className="about-section__img about-section__img--sub" />
               <div className="about-section__watermark">
-                Create<br/>Compete<br/>Connect<br/>Grow
+                Create<br />Compete<br />Connect<br />Grow
               </div>
             </div>
           </div>
@@ -197,11 +205,11 @@ export default function Home() {
             <div className="venue-section__left">
               <div className="section-label">Our Venue 📍</div>
               <h2 className="venue-section__title">
-                CMR College of<br/>Engineering and Technology
+                CMR College of<br />Engineering and Technology
               </h2>
               <p className="venue-section__addr">Kandlakoya, Hyderabad, Telangana</p>
               <a
-                href="https://maps.google.com/?q=CMR+College+of+Engineering+and+Technology+Kandlakoya"
+                href="https://maps.app.goo.gl/3kBVBTWZX8dwS2a48"
                 target="_blank"
                 rel="noreferrer"
                 className="btn btn-outline"

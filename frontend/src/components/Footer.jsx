@@ -77,8 +77,8 @@ export default function Footer() {
         <div className="footer__bottom">
           <p>&copy; {year} BAMMAZ 2K26. All rights reserved.</p>
           <div className="footer__bottom-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms &amp; Conditions</a>
+            <Link to="/privacy-policy">Privacy Policy</Link>
+            <Link to="/terms-and-conditions">Terms &amp; Conditions</Link>
           </div>
         </div>
       </div>

@@ -12,6 +12,8 @@ import EventDetail from './pages/EventDetail'
 import Venue from './pages/Venue'
 import FAQ from './pages/FAQ'
 import Contact from './pages/Contact'
+import PrivacyPolicy from './pages/PrivacyPolicy'
+import TermsAndConditions from './pages/TermsAndConditions'
 import Signup from './pages/Signup'
 import Signin from './pages/Signin'
 import RegisterForm from './pages/RegisterForm'
@@ -41,6 +43,8 @@ export default function App() {
           <Route path="/venue" element={<Layout><Venue /></Layout>} />
           <Route path="/faq" element={<Layout><FAQ /></Layout>} />
           <Route path="/contact" element={<Layout><Contact /></Layout>} />
+          <Route path="/privacy-policy" element={<Layout><PrivacyPolicy /></Layout>} />
+          <Route path="/terms-and-conditions" element={<Layout><TermsAndConditions /></Layout>} />
 
           {/* Auth */}
           <Route path="/signup" element={<Layout noFooter><Signup /></Layout>} />
