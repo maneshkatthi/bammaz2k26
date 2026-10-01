@@ -41,6 +41,8 @@ app.use('/api/registrations', registrationRoutes);
 // ---------------------------------------------------------------------------
 // Health check
 // ---------------------------------------------------------------------------
+app.get('/', (req, res) => res.redirect('/api/health'));
+
 app.get('/api/health', async (_req, res) => {
   const startTime = Date.now();
 
